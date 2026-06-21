@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking | Luxe Dining</title>
+    <link rel="stylesheet" href="css/booking.css" />
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1 class="logo">LUXE</h1>
+        <ul>
+            <li><a href="landingpage.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="booking">
+    <h1>Reserve a Table</h1>
+    
+   <form action="http://localhost/Luxe/submit-reservation.php" method="POST">
+    <input type="text" name="first_name" placeholder="First Name" required />
+    <input type="text" name="last_name" placeholder="Last Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="tel" name="phone" placeholder="Phone Number (Optional)" />
+    <input type="date" name="reservation_date" required />
+    <input type="time" name="reservation_time" required />
+    <input type="number" name="number_of_guests" placeholder="Number of Guests" required />
+    <input type="text" name="occasion" placeholder="Occasion (Optional)" />
+    <input type="text" name="special_requests" placeholder="Special Requests (Optional)" />
+
+    <button type="submit">Book Now</button>
+</form>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2>BOOKING CONFIRMED</h2>
+        <p>Your table has been successfully reserved.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("bookingForm");
+    const popup = document.getElementById("popup");
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+        popup.style.display = "flex";
+    });
+
+    function closePopup(){
+        popup.style.display = "none";
+        form.reset();
+    }
+</script>
+
+</body>
+</html>

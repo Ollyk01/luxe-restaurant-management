@@ -1,0 +1,38 @@
+@import url('style.css');
+
+.menu {
+    padding: 120px 50px;
+    text-align: center;
+}
+
+.menu h1 {
+    color: var(--gold);
+    margin-bottom: 50px;
+}
+
+.menu-section {
+    margin-bottom: 50px;
+}
+
+.menu-section h2 {
+    margin-bottom: 20px;
+}
+
+.item {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    transition: 0.3s;
+}
+
+.item:hover {
+    color: var(--gold);
+    padding-left: 10px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 40px;
+    }
+}

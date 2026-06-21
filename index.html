@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE · Access Gateway</title>
+
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#0a0a0a;
+            font-family:Arial;
+            color:#d4af37;
+        }
+
+        .container{
+            text-align:center;
+        }
+
+        h1{
+            letter-spacing:4px;
+            margin-bottom:10px;
+        }
+
+        p{
+            color:#888;
+            margin-bottom:40px;
+            font-size:14px;
+        }
+
+        .btn{
+            display:block;
+            width:260px;
+            margin:15px auto;
+            padding:15px;
+            border:1px solid #d4af37;
+            color:#d4af37;
+            text-decoration:none;
+            transition:0.3s;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#d4af37;
+            color:#000;
+        }
+
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SCREEN 1 -->
+    <div id="mainScreen">
+        <h1>LUXE ACCESS</h1>
+        <p>Select your portal</p>
+
+        <div class="btn" onclick="showInternal()">Internal Team</div>
+        <a class="btn" href="landingpage.html">Customer</a>
+    </div>
+
+    <!-- SCREEN 2 -->
+    <div id="internalScreen" class="hidden">
+        <h1>Internal Access</h1>
+        <p>Choose your department</p>
+
+        <a class="btn" href="login.html">Waiter Login</a>
+        <a class="btn" href="login.html">Kitchen Login</a>
+        <a class="btn" href="login.html">Admin Portal</a>
+
+        <div class="btn" onclick="back()">Back</div>
+    </div>
+
+</div>
+
+<script>
+    function showInternal(){
+        document.getElementById("mainScreen").classList.add("hidden");
+        document.getElementById("internalScreen").classList.remove("hidden");
+    }
+
+    function back(){
+        document.getElementById("internalScreen").classList.add("hidden");
+        document.getElementById("mainScreen").classList.remove("hidden");
+    }
+</script>
+
+</body>
+</html>

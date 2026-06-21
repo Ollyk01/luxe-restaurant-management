@@ -1,0 +1,46 @@
+@import url('style.css');
+
+.contact {
+    padding: 120px 50px;
+    text-align: center;
+}
+
+.contact h1 {
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.contact p {
+    margin-bottom: 10px;
+    color: var(--gray);
+}
+
+/* FORM */
+form {
+    max-width: 500px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, textarea {
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+}
+
+button {
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--gold);
+    color: black;
+}

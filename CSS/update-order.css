@@ -1,0 +1,59 @@
+   .order-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.status-btn {
+    background: transparent;
+    border: 2px solid;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Ready - Green */
+.ready-btn {
+    color: #4caf50;
+    border-color: #4caf50;
+}
+
+.ready-btn:hover {
+    background: rgba(76, 175, 80, 0.15);
+}
+
+/* Being Prepared - Amber */
+.preparing-btn {
+    color: #ff9800;
+    border-color: #ff9800;
+}
+
+.preparing-btn:hover {
+    background: rgba(255, 152, 0, 0.15);
+}
+
+/* Delayed - Blue */
+.delayed-btn {
+    color: #2196f3;
+    border-color: #2196f3;
+}
+
+.delayed-btn:hover {
+    background: rgba(33, 150, 243, 0.15);
+}
+
+/* Cancelled - Red */
+.cancelled-btn {
+    color: #f44336;
+    border-color: #f44336;
+}
+
+.cancelled-btn:hover {
+    background: rgba(244, 67, 54, 0.15);
+}

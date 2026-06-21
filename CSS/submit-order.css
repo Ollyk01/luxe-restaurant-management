@@ -1,0 +1,208 @@
+/* Right Side - Order Summary */
+        .order-panel {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+        }
+ 
+        .order-panel-title {
+            font-size: 12px;
+            color: #a89436;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+ 
+        .order-table-info {
+            font-size: 14px;
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+ 
+        .order-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+ 
+        .order-item {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 10px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-size: 12px;
+        }
+ 
+        .order-item-info {
+            flex: 1;
+        }
+ 
+        .order-item-name {
+            color: #e0e0e0;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+ 
+        .order-item-pref {
+            color: #d4af37;
+            font-size: 10px;
+            margin-bottom: 2px;
+        }
+ 
+        .order-item-price {
+            color: #d4af37;
+            font-weight: 600;
+        }
+ 
+        .order-item-remove {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0 5px;
+            transition: all 0.3s ease;
+        }
+ 
+        .order-item-remove:hover {
+            color: #ff8888;
+        }
+ 
+        .order-divider {
+            height: 1px;
+            background-color: rgba(212, 175, 55, 0.2);
+            margin-bottom: 15px;
+        }
+ 
+        .special-instructions-label {
+            font-size: 10px;
+            color: #a89436;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+ 
+        .special-instructions {
+            width: 100%;
+            padding: 10px;
+            background-color: #1a1a1a;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: #e0e0e0;
+            font-size: 11px;
+            border-radius: 3px;
+            resize: none;
+            height: 50px;
+            margin-bottom: 10px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+ 
+        .special-instructions:focus {
+            outline: none;
+            border-color: rgba(212, 175, 55, 0.5);
+            background-color: #252525;
+        }
+ 
+        .special-instructions::placeholder {
+            color: #666666;
+        }
+ 
+        .allergies-label {
+            font-size: 10px;
+            color: #a89436;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+ 
+        .allergies {
+            width: 100%;
+            padding: 10px;
+            background-color: #1a1a1a;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: #e0e0e0;
+            font-size: 11px;
+            border-radius: 3px;
+            resize: none;
+            height: 50px;
+            margin-bottom: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+ 
+        .allergies:focus {
+            outline: none;
+            border-color: rgba(212, 175, 55, 0.5);
+            background-color: #252525;
+        }
+ 
+        .allergies::placeholder {
+            color: #666666;
+        }
+ 
+        .order-total-section {
+            padding-top: 12px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 15px;
+        }
+ 
+        .order-total-label {
+            font-size: 11px;
+            color: #a89436;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+ 
+        .order-total {
+            font-size: 28px;
+            color: #d4af37;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+ 
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #d4af37;
+            color: #0a0a0a;
+            border: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+            margin-top: 15px;
+        }
+ 
+        .submit-btn:hover {
+            background-color: #e5c158;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+ 
+        .submit-btn:disabled {
+            background-color: #888888;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
