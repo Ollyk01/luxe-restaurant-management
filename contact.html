@@ -1,3 +1,124 @@
+<style>
+    /* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+/* COLORS */
+:root {
+    --black: #0a0a0a;
+    --gold: #c9a24e;
+    --white: #ffffff;
+    --gray: #aaa;
+}
+
+/* NAVBAR */
+header {
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--white);
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--gold);
+    color: black;
+}
+
+.contact {
+    padding: 120px 50px;
+    text-align: center;
+}
+
+.contact h1 {
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.contact p {
+    margin-bottom: 10px;
+    color: var(--gray);
+}
+
+/* FORM */
+form {
+    max-width: 500px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, textarea {
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+}
+
+button {
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--gold);
+    color: black;
+}
+
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
