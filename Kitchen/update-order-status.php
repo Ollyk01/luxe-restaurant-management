@@ -1,12 +1,11 @@
 <?php
-// Kitchen/update-order-status.php
 require_once '../includes/auth.php';
 checkRole(['Kitchen Staff']);
 
 $chef_name = getCurrentUserName();
 $chef_id = $_SESSION['employee_number'];
 
-// Handle status update
+
 if (isset($_POST['update_status'])) {
     $order_id = intval($_POST['order_id']);
     $new_status = mysqli_real_escape_string($conn, $_POST['status']);
@@ -22,7 +21,7 @@ if (isset($_POST['update_status'])) {
     }
 }
 
-// Get all active orders
+
 $sql = "SELECT o.*, u.first_name, u.last_name, rt.table_number 
         FROM orders o
         LEFT JOIN users u ON o.waiter_id = u.user_id
@@ -407,7 +406,7 @@ $active_orders = $conn->query($sql);
             transition: all 0.3s ease;
         }
 
-        /* Ready - Green */
+       
         .ready-btn {
             color: #4caf50;
             border-color: #4caf50;
@@ -417,7 +416,7 @@ $active_orders = $conn->query($sql);
             background: rgba(76, 175, 80, 0.15);
         }
 
-        /* Being Prepared - Amber */
+      
         .preparing-btn {
             color: #ff9800;
             border-color: #ff9800;
@@ -427,7 +426,6 @@ $active_orders = $conn->query($sql);
             background: rgba(255, 152, 0, 0.15);
         }
 
-        /* Delayed - Blue */
         .delayed-btn {
             color: #2196f3;
             border-color: #2196f3;
@@ -437,7 +435,7 @@ $active_orders = $conn->query($sql);
             background: rgba(33, 150, 243, 0.15);
         }
 
-        /* Cancelled - Red */
+  
         .cancelled-btn {
             color: #f44336;
             border-color: #f44336;
@@ -538,7 +536,6 @@ $active_orders = $conn->query($sql);
                                   WHERE oi.order_id = " . $order['order_id'];
                     $items = $conn->query($items_sql);
 
-                    // Determine status badge class
                     $status_class = '';
                     switch ($order['order_status']) {
                         case 'Being Prepared':

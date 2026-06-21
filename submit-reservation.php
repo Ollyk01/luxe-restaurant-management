@@ -20,7 +20,6 @@ $guests = isset($_POST['number_of_guests']) ? intval($_POST['number_of_guests'])
 $occasion = isset($_POST['occasion']) ? mysqli_real_escape_string($conn, $_POST['occasion']) : '';
 $special_requests = isset($_POST['special_requests']) ? mysqli_real_escape_string($conn, $_POST['special_requests']) : '';
 
-// Combine date and time into datetime format
 $reservation_datetime = $reservation_date . ' ' . $reservation_time . ':00';
 
 // Validate
@@ -29,14 +28,14 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($reservati
     exit();
 }
 
-// Insert into your table (matches your exact table structure)
+
 $sql = "INSERT INTO reservations (first_name, last_name, email, reservation_date, guests, occasion, special_requests, status) 
         VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')";
 
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
-    // If prepared statement fails, try direct query
+     
     $sql_direct = "INSERT INTO reservations (first_name, last_name, email, reservation_date, guests, occasion, special_requests, status) 
                    VALUES ('$first_name', '$last_name', '$email', '$reservation_datetime', $guests, '$occasion', '$special_requests', 'pending')";
     

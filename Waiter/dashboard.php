@@ -806,7 +806,7 @@ if (isset($_GET['mark_all_read'])) {
     }
 
     function setupEventListeners() {
-        // Tab clicks
+     
         document.querySelectorAll('.menu-tab').forEach(function(tab) {
             tab.addEventListener('click', function() {
                 const category = this.dataset.category;
@@ -818,16 +818,14 @@ if (isset($_GET['mark_all_read'])) {
             });
         });
 
-        // Table selection - FIXED: removed .toUpperCase() causing error
         document.getElementById('tableSelect').addEventListener('change', function(e) {
             currentTable = this.value;
             updateOrderPanel();
         });
 
-        // Submit button
+
         document.getElementById('submitBtn').addEventListener('click', submitOrder);
 
-        // Modal buttons
         document.getElementById('cancelBtn').addEventListener('click', function() {
             document.getElementById('modalOverlay').classList.remove('active');
         });
@@ -859,7 +857,6 @@ if (isset($_GET['mark_all_read'])) {
             menuContainer.appendChild(itemDiv);
         });
 
-        // Add click listeners to all + buttons
         document.querySelectorAll('.menu-item-add').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 const name = this.dataset.name;
@@ -1034,11 +1031,10 @@ if (isset($_GET['mark_all_read'])) {
         if (data.success) {
             console.log('Order successful! Order number:', data.order_number);
             
-            // Update notification content
             document.getElementById('notificationOrderNum').textContent = data.order_number;
             document.getElementById('notificationTable').textContent = tableSelect.options[tableSelect.selectedIndex].text;
             
-            // Show the notification
+      
             const notification = document.getElementById('notification');
             console.log('Notification element:', notification);
             notification.classList.add('active');
@@ -1067,13 +1063,11 @@ if (isset($_GET['mark_all_read'])) {
 }
        
 
-         // Toggle notification dropdown
             function toggleNotifications() {
                const dropdown = document.getElementById('notificationDropdown');
               dropdown.classList.toggle('show');
 }
 
-        // Close dropdown when clicking outside
         document.addEventListener('click', function(e) {
             const wrapper = document.querySelector('.notification-wrapper');
             if (wrapper && !wrapper.contains(e.target)) {
@@ -1081,7 +1075,7 @@ if (isset($_GET['mark_all_read'])) {
     }
 });
 
-// Toast notification function
+
     function showToast(message) {
         const toast = document.createElement('div');
         toast.className = 'toast-notification';
@@ -1097,19 +1091,18 @@ if (isset($_GET['mark_all_read'])) {
     }, 5000);
 }
 
-// Check for new notifications every 10 seconds
         setInterval(function() {
          fetch('check-notifications.php')
         .then(response => response.json())
         .then(data => {
             if (data.count > 0) {
-                // Update bell badge
+                
                 const badge = document.querySelector('.notification-badge');
                 if (badge) {
                     badge.textContent = data.count;
                     badge.style.display = 'block';
                 } else {
-                    // Create badge if it doesn't exist
+                    
                     const bell = document.querySelector('.notification-bell');
                     const newBadge = document.createElement('span');
                     newBadge.className = 'notification-badge';
@@ -1117,25 +1110,22 @@ if (isset($_GET['mark_all_read'])) {
                     bell.appendChild(newBadge);
                 }
 
-                // Show a toast notification
+                
                 showToast('New order ready for collection!');
                 
-                // Optionally update the dropdown content
                 updateNotificationDropdown();
             }
         })
         .catch(error => console.log('Error checking notifications:', error));
     }, 10000);
 
-// Function to update notification dropdown (optional)
         function updateNotificationDropdown() {
              fetch('get-notifications.php')
               .then(response => response.text())
               .then(html => {
             const dropdown = document.getElementById('notificationDropdown');
-            // Only update if dropdown is not open
             if (!dropdown.classList.contains('show')) {
-                // You can update the dropdown content here if needed
+                /
             }
         })
         .catch(error => console.log('Error updating notifications:', error));

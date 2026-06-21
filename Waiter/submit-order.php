@@ -1,6 +1,6 @@
 <?php
 // Waiter/submit-order.php
-error_reporting(0); // Turn off error reporting to prevent HTML output
+error_reporting(0); 
 session_start();
 
 // Check if user is logged in
@@ -65,7 +65,7 @@ $stmt->bind_param("siidss", $order_number, $waiter_id, $table_id, $total, $order
 if ($stmt->execute()) {
     $order_id = $conn->insert_id;
     
-    // Insert each item
+    // Insert item
     foreach ($items as $item) {
         $item_name = $conn->real_escape_string($item['name']);
         $price = floatval($item['price']);

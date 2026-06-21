@@ -698,7 +698,7 @@ $active_employees = $conn->query("SELECT COUNT(*) as count FROM users WHERE stat
             display: block;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* RESPONSIVE DESIGN */
 
         /* Tablet */
         @media (max-width: 1024px) {
@@ -1184,7 +1184,6 @@ $active_employees = $conn->query("SELECT COUNT(*) as count FROM users WHERE stat
             modal.classList.add('show');
         });
 
-        // Close modal
         function closeModal() {
             modal.classList.remove('show');
             document.getElementById('employeeForm').reset();
@@ -1192,21 +1191,18 @@ $active_employees = $conn->query("SELECT COUNT(*) as count FROM users WHERE stat
 
         closeBtn.addEventListener('click', closeModal);
 
-        // Close modal on outside click
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 closeModal();
             }
         });
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
 
-        // Show success message if PHP set it
         <?php if ($success): ?>
         document.addEventListener('DOMContentLoaded', function() {
             successMsg.classList.add('show');

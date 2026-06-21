@@ -6,7 +6,7 @@ checkRole(['Waiter']);
 $waiter_name = getCurrentUserName();
 $waiter_id = $_SESSION['employee_number'];
 
-// Get active orders for this waiter
+// Get active orders for waiter
 $sql = "SELECT o.*, rt.table_number 
         FROM orders o
         LEFT JOIN restaurant_tables rt ON o.table_id = rt.table_id

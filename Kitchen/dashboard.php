@@ -15,13 +15,13 @@ $sql = "SELECT o.*, u.first_name, u.last_name, rt.table_number
         ORDER BY o.created_at ASC";
 $active_orders = $conn->query($sql);
 
-// Count statistics
+
 $count_being_prepared = $conn->query("SELECT COUNT(*) as count FROM orders WHERE order_status = 'Being Prepared'")->fetch_assoc()['count'];
 $count_delayed = $conn->query("SELECT COUNT(*) as count FROM orders WHERE order_status = 'Delayed'")->fetch_assoc()['count'];
 $count_ready = $conn->query("SELECT COUNT(*) as count FROM orders WHERE order_status = 'Ready'")->fetch_assoc()['count'];
 $count_cancelled = $conn->query("SELECT COUNT(*) as count FROM orders WHERE order_status = 'Cancelled'")->fetch_assoc()['count'];
 
-// Handle status update
+
 if (isset($_POST['update_status'])) {
     $order_id = intval($_POST['order_id']);
     $new_status = mysqli_real_escape_string($conn, $_POST['status']);
@@ -29,13 +29,12 @@ if (isset($_POST['update_status'])) {
     $update_sql = "UPDATE orders SET order_status = '$new_status' WHERE order_id = $order_id";
     if ($conn->query($update_sql)) {
         if ($new_status == 'Ready') {
-            // Get waiter_id and order_number for notification
+        
             $waiter_sql = "SELECT waiter_id, order_number FROM orders WHERE order_id = $order_id";
             $waiter_result = $conn->query($waiter_sql);
             if ($waiter_result && $waiter_result->num_rows > 0) {
                 $order_data = $waiter_result->fetch_assoc();
                 
-                // Create notification for waiter
                 $notify_sql = "INSERT INTO notifications (order_id, waiter_id, order_number, message, is_read) 
                                VALUES ($order_id, {$order_data['waiter_id']}, '{$order_data['order_number']}', 
                                        'Order {$order_data['order_number']} is ready for collection', 0)";
@@ -253,7 +252,7 @@ if (isset($_POST['update_status'])) {
                                 <?php endif; ?>
                                 <?php if ($item['allergy_notes']): ?>
                                     <div class="order-item" style="font-size: 11px; color: #dc3545; margin-left: 20px;">
-                                        <strong>⚠️ <?php echo htmlspecialchars($item['allergy_notes']); ?></strong>
+                                        <strong><?php echo htmlspecialchars($item['allergy_notes']); ?></strong>
                                     </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>
@@ -320,11 +319,9 @@ if (isset($_POST['update_status'])) {
             filterTabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
             
-            // Get the filter text (e.g., "Incoming 5", "Ready 6")
             const filterText = this.textContent.trim().toLowerCase();
             console.log('Filter clicked:', filterText);
             
-            // Show/hide orders based on filter
             orderCards.forEach(card => {
                 const statusElement = card.querySelector('.order-time');
                 if (statusElement) {
@@ -368,7 +365,6 @@ if (isset($_POST['update_status'])) {
                             card.style.display = 'none';
                         }
                     } else {
-                        // Default: show all
                         card.style.display = '';
                     }
                 } else {
@@ -378,7 +374,7 @@ if (isset($_POST['update_status'])) {
         });
     });
     
-    // Log to confirm script is running
+
     console.log('Filter tabs script loaded');
     console.log('Found ' + filterTabs.length + ' filter tabs');
     console.log('Found ' + orderCards.length + ' order cards');

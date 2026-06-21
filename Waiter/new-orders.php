@@ -946,7 +946,7 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         document.getElementById('cancelBtn').addEventListener('click', () => {
             document.getElementById('modalOverlay').classList.remove('active');
         });
-        document.getElementById('confirmBtn').addEventListener('click', confirmPreference);
+        document.getElementByI('confirmBtn').addEventListener('click', confirmPreference);
     }
 
     // Render menu items for a category
@@ -989,7 +989,6 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         });
     }
 
-    // Show cooking preference modal
     function showCookingPreferenceModal(itemName, meatType) {
         document.getElementById('meatType').textContent = meatType;
         const modal = document.getElementById('modalOverlay');
@@ -1011,7 +1010,7 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         modal.classList.add('active');
     }
 
-    // Confirm cooking preference and add item
+    
     function confirmPreference() {
         const selected = document.querySelector('.preference-option.selected');
         if (!selected) return;
@@ -1021,7 +1020,7 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         document.getElementById('modalOverlay').classList.remove('active');
     }
 
-    // Add item to order
+
     function addItemToOrder(name, price, preference) {
         orderItems.push({
             id: Date.now(),
@@ -1032,13 +1031,11 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         updateOrderPanel();
     }
 
-    // Remove item from order
     function removeItemFromOrder(id) {
         orderItems = orderItems.filter(item => item.id !== id);
         updateOrderPanel();
     }
 
-    // Update the order summary panel
     function updateOrderPanel() {
         const tableSelect = document.getElementById('tableSelect').value;
 
@@ -1068,7 +1065,6 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         const total = orderItems.reduce((sum, item) => sum + item.price, 0);
         document.getElementById('orderTotal').textContent = `R${total}.00`;
 
-        // Enable/disable submit button
         document.getElementById('submitBtn').disabled = orderItems.length === 0 || !tableSelect;
     }
 
@@ -1099,7 +1095,7 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         allergies: document.getElementById('allergies').value
     };
     
-    // Disable the submit button to prevent double submission
+    
     const submitBtn = document.getElementById('submitBtn');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';

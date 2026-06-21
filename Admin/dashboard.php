@@ -23,7 +23,7 @@ $total_reservations = $conn->query("SELECT COUNT(*) as count FROM reservations")
 $pending_reservations = $conn->query("SELECT COUNT(*) as count FROM reservations WHERE status = 'Pending'")->fetch_assoc()['count'];
 $active_orders = $conn->query("SELECT COUNT(*) as count FROM orders WHERE order_status != 'Ready' AND order_status != 'Cancelled'")->fetch_assoc()['count'];
 
-// Get recent reservations
+
 $recent_reservations = $conn->query("SELECT * FROM reservations ORDER BY created_at DESC LIMIT 5");
 ?>
 

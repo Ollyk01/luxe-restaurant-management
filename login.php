@@ -3,7 +3,6 @@
 session_start();
 require_once 'database.php';
 
-// If already logged in, redirect to appropriate dashboard
 if (isset($_SESSION['user_id'])) {
     switch ($_SESSION['role']) {
         case 'Administrator':
