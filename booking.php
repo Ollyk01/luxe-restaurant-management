@@ -1,3 +1,19 @@
+<?php
+// booking.php
+require_once 'includes/config.php';
+
+$success = false;
+$error = '';
+
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $success = true;
+}
+
+if (isset($_GET['error'])) {
+    $error = htmlspecialchars($_GET['error']);
+}
+?>
+
 <style>
     /* RESET */
 * {

@@ -1,3 +1,7 @@
+<?php
+require_once 'includes/config.php';
+?>
+
 <style>
 * {
     margin: 0;
