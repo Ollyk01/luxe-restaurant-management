@@ -78,9 +78,9 @@ require_once 'includes/config.php';
         <h1>Internal Access</h1>
         <p>Choose your department</p>
 
-        <a class="btn" href="login.html">Waiter Login</a>
-        <a class="btn" href="login.html">Kitchen Login</a>
-        <a class="btn" href="login.html">Admin Portal</a>
+        <a class="btn" href="login.php">Waiter Login</a>
+        <a class="btn" href="login.php">Kitchen Login</a>
+        <a class="btn" href="login.php">Admin Portal</a>
 
         <div class="btn" onclick="back()">Back</div>
     </div>

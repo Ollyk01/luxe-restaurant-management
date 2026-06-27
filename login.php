@@ -276,7 +276,7 @@ if (isset($_GET['error'])) {
                         Luxe Fine Dining - Authorised Personnel Only
                     </div>
 
-                    <a href="../index.html" class="back-btn">Back</a>
+                    <a href="../index.php" class="back-btn">Back</a>
 
                 </div>
 

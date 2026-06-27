@@ -138,10 +138,10 @@ button:hover {
     <nav>
         <h1 class="logo">LUXE</h1>
         <ul>
-            <li><a href="landingpage.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="landingpage.php">Home</a></li>
+            <li><a href="menu.php">Menu</a></li>
+            <li><a href="booking.php">Booking</a></li>
+            <li><a href="contact.php">Contact</a></li>
         </ul>
     </nav>
 </header>
