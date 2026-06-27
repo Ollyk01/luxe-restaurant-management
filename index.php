@@ -70,7 +70,7 @@ require_once 'includes/config.php';
         <p>Select your portal</p>
 
         <div class="btn" onclick="showInternal()">Internal Team</div>
-        <a class="btn" href="landingpage.html">Customer</a>
+        <a class="btn" href="landingpage.php">Customer</a>
     </div>
 
     <!-- SCREEN 2 -->
