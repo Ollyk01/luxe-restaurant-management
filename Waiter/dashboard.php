@@ -726,6 +726,7 @@ if (isset($_GET['mark_all_read'])) {
     </div>
 </div>
 
+
 <script>
     // ===== MENU DATA FROM PHP =====
     const menuData = {
@@ -806,7 +807,6 @@ if (isset($_GET['mark_all_read'])) {
     }
 
     function setupEventListeners() {
-     
         document.querySelectorAll('.menu-tab').forEach(function(tab) {
             tab.addEventListener('click', function() {
                 const category = this.dataset.category;
@@ -823,9 +823,7 @@ if (isset($_GET['mark_all_read'])) {
             updateOrderPanel();
         });
 
-
         document.getElementById('submitBtn').addEventListener('click', submitOrder);
-
         document.getElementById('cancelBtn').addEventListener('click', function() {
             document.getElementById('modalOverlay').classList.remove('active');
         });
@@ -956,7 +954,6 @@ if (isset($_GET['mark_all_read'])) {
             });
             itemsList.innerHTML = html;
 
-            // Add remove listeners
             document.querySelectorAll('.order-item-remove').forEach(function(btn) {
                 btn.addEventListener('click', function() {
                     const id = parseInt(this.dataset.id);
@@ -965,116 +962,111 @@ if (isset($_GET['mark_all_read'])) {
             });
         }
 
-        // Update total
         const total = orderItems.reduce(function(sum, item) {
             return sum + item.price;
         }, 0);
         document.getElementById('orderTotal').textContent = 'R' + total.toFixed(2);
-
-        // Enable/disable submit button - FIXED: using currentTable variable
         document.getElementById('submitBtn').disabled = orderItems.length === 0 || !currentTable;
     }
 
-    //Submit order
+    // Submit order
     function submitOrder() {
-    const tableSelect = document.getElementById('tableSelect');
-    const table_id = tableSelect.value;
-    
-    console.log('Submitting order...');
-    console.log('Table ID:', table_id);
-    console.log('Order items:', orderItems);
-    
-    if (!table_id) {
-        alert('Please select a table');
-        return;
-    }
-    
-    if (orderItems.length === 0) {
-        alert('Please add items to the order');
-        return;
-    }
-    
-    const orderData = {
-        table_id: table_id,
-        items: orderItems.map(function(item) {
-            return {
-                name: item.name,
-                price: item.price,
-                preference: item.preference || null,
-                quantity: 1
-            };
-        }),
-        special_instructions: document.getElementById('specialInstructions').value,
-        allergies: document.getElementById('allergies').value
-    };
-    
-    console.log('Order data being sent:', orderData);
-    
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
-    
-    fetch('submit-order.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(orderData)
-    })
-    .then(function(response) {
-        console.log('Response status:', response.status);
-        return response.json();
-    })
-    .then(function(data) {
-        console.log('Server response:', data);
+        const tableSelect = document.getElementById('tableSelect');
+        const table_id = tableSelect.value;
         
-        if (data.success) {
-            console.log('Order successful! Order number:', data.order_number);
-            
-            document.getElementById('notificationOrderNum').textContent = data.order_number;
-            document.getElementById('notificationTable').textContent = tableSelect.options[tableSelect.selectedIndex].text;
-            
-      
-            const notification = document.getElementById('notification');
-            console.log('Notification element:', notification);
-            notification.classList.add('active');
-            
-            setTimeout(function() {
-                orderItems = [];
-                tableSelect.value = '';
-                document.getElementById('specialInstructions').value = '';
-                document.getElementById('allergies').value = '';
-                currentTable = '';
-                updateOrderPanel();
-                notification.classList.remove('active');
-            }, 4000);
-        } else {
-            alert('Error: ' + data.message);
+        console.log('Submitting order...');
+        console.log('Table ID:', table_id);
+        console.log('Order items:', orderItems);
+        
+        if (!table_id) {
+            alert('Please select a table');
+            return;
         }
-    })
-    .catch(function(error) {
-        console.error('Fetch error:', error);
-        alert('Error submitting order: ' + error);
-    })
-    .finally(function() {
+        
+        if (orderItems.length === 0) {
+            alert('Please add items to the order');
+            return;
+        }
+        
+        const orderData = {
+            table_id: table_id,
+            items: orderItems.map(function(item) {
+                return {
+                    name: item.name,
+                    price: item.price,
+                    preference: item.preference || null,
+                    quantity: 1
+                };
+            }),
+            special_instructions: document.getElementById('specialInstructions').value,
+            allergies: document.getElementById('allergies').value
+        };
+        
+        console.log('Order data being sent:', orderData);
+        
+        const submitBtn = document.getElementById('submitBtn');
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Submit Order';
-    });
-}
-       
-
-            function toggleNotifications() {
-               const dropdown = document.getElementById('notificationDropdown');
-              dropdown.classList.toggle('show');
-}
-
-        document.addEventListener('click', function(e) {
-            const wrapper = document.querySelector('.notification-wrapper');
-            if (wrapper && !wrapper.contains(e.target)) {
-                document.getElementById('notificationDropdown').classList.remove('show');
+        submitBtn.textContent = 'Submitting...';
+        
+        fetch('submit-order.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(function(response) {
+            console.log('Response status:', response.status);
+            return response.json();
+        })
+        .then(function(data) {
+            console.log('Server response:', data);
+            
+            if (data.success) {
+                console.log('Order successful! Order number:', data.order_number);
+                
+                document.getElementById('notificationOrderNum').textContent = data.order_number;
+                document.getElementById('notificationTable').textContent = tableSelect.options[tableSelect.selectedIndex].text;
+                
+                const notification = document.getElementById('notification');
+                console.log('Notification element:', notification);
+                notification.classList.add('active');
+                
+                setTimeout(function() {
+                    orderItems = [];
+                    tableSelect.value = '';
+                    document.getElementById('specialInstructions').value = '';
+                    document.getElementById('allergies').value = '';
+                    currentTable = '';
+                    updateOrderPanel();
+                    notification.classList.remove('active');
+                }, 4000);
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(function(error) {
+            console.error('Fetch error:', error);
+            alert('Error submitting order: ' + error);
+        })
+        .finally(function() {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submit Order';
+        });
     }
-});
 
+    // Notifications
+    function toggleNotifications() {
+        const dropdown = document.getElementById('notificationDropdown');
+        dropdown.classList.toggle('show');
+    }
+
+    document.addEventListener('click', function(e) {
+        const wrapper = document.querySelector('.notification-wrapper');
+        if (wrapper && !wrapper.contains(e.target)) {
+            document.getElementById('notificationDropdown').classList.remove('show');
+        }
+    });
 
     function showToast(message) {
         const toast = document.createElement('div');
@@ -1088,52 +1080,45 @@ if (isset($_GET['mark_all_read'])) {
             setTimeout(function() {
                 toast.remove();
             }, 300);
-    }, 5000);
-}
+        }, 5000);
+    }
 
-        setInterval(function() {
-         fetch('check-notifications.php')
+    setInterval(function() {
+        fetch('check-notifications.php')
         .then(response => response.json())
         .then(data => {
             if (data.count > 0) {
-                
                 const badge = document.querySelector('.notification-badge');
                 if (badge) {
                     badge.textContent = data.count;
                     badge.style.display = 'block';
                 } else {
-                    
                     const bell = document.querySelector('.notification-bell');
                     const newBadge = document.createElement('span');
                     newBadge.className = 'notification-badge';
                     newBadge.textContent = data.count;
                     bell.appendChild(newBadge);
                 }
-
-                
                 showToast('New order ready for collection!');
-                
-                updateNotificationDropdown();
             }
         })
         .catch(error => console.log('Error checking notifications:', error));
     }, 10000);
 
-        function updateNotificationDropdown() {
-             fetch('get-notifications.php')
-              .then(response => response.text())
-              .then(html => {
+    function updateNotificationDropdown() {
+        fetch('get-notifications.php')
+        .then(response => response.text())
+        .then(html => {
             const dropdown = document.getElementById('notificationDropdown');
             if (!dropdown.classList.contains('show')) {
-                /
+                // Update silently
             }
         })
         .catch(error => console.log('Error updating notifications:', error));
-}
+    }
 
-// Initial notification count check
     document.addEventListener('DOMContentLoaded', function() {
-    fetch('check-notifications.php')
+        fetch('check-notifications.php')
         .then(response => response.json())
         .then(data => {
             if (data.count > 0) {
@@ -1144,7 +1129,7 @@ if (isset($_GET['mark_all_read'])) {
             }
         })
         .catch(error => console.log('Error checking initial notifications:', error));
-});
+    });
 
     // Initialize on page load
     init();
