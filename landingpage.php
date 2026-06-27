@@ -68,6 +68,7 @@ nav a:hover {
     color:  #c9a24e;
     text-decoration: none;
     transition: 0.3s;
+    color: #fff;
 }
 
 .btn:hover {
@@ -129,7 +130,7 @@ nav a:hover {
 /* ABOUT */
 
 .about {
-    padding: 120px 20px;
+    padding: 120px 0px;
     background-color: #0a0a0a;
     width: 100%;
     height: 100%;
@@ -152,7 +153,6 @@ nav a:hover {
 
 .about p {
     max-width: 600px;
-    margin: 0 auto;
     color: #fff;
     line-height: 2.2;
     text-align: center;
