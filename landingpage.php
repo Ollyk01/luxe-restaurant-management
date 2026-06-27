@@ -64,7 +64,7 @@ nav a:hover {
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    border: 1px solid var(--gold);
+    border: 1px solid #c9a24e;
     color:  #c9a24e;
     text-decoration: none;
     transition: 0.3s;
@@ -72,7 +72,7 @@ nav a:hover {
 
 .btn:hover {
     background:  #c9a24e;
-    color: black;
+    color: #fff;
 }
 
 /* HERO SECTION */
@@ -117,6 +117,7 @@ nav a:hover {
 .hero-content h1 {
     font-size: 70px;
     letter-spacing: 4px;
+    color: #fff;
 }
 
 .hero-content p {
@@ -276,8 +277,8 @@ nav a:hover {
     <div class="hero-content">
         <h1>Fine Dining Redefined</h1>
         <p>An unforgettable culinary experience</p>
-        <a href="booking.html" class="btn">Reserve Your Table</a>
-        <a href="menu.html" class="btn">View Menu   </a>
+        <a href="booking.php" class="btn">Reserve Your Table</a>
+        <a href="menu.php" class="btn">View Menu   </a>
 
     </div>
     </div>
