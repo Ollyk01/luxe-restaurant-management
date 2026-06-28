@@ -153,7 +153,7 @@ nav a:hover {
 }
 
 .about-text p1  {
-    max-width: 600px;
+    max-width: 120px;
     color: #fff;
     line-height: 2.2;
     text-align: center;
