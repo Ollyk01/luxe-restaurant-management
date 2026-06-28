@@ -3,7 +3,6 @@
 require_once '../includes/auth.php';
 checkRole(['Administrator']);
 
-
 if (!isset($_GET['id'])) {
     header('Location: dashboard.php?error=No reservation ID provided');
     exit();
@@ -11,13 +10,12 @@ if (!isset($_GET['id'])) {
 
 $reservation_id = intval($_GET['id']);
 
-// Update reservation status to Declined
 $sql = "UPDATE reservations SET status = 'Declined' WHERE reservation_id = $reservation_id";
 
 if ($conn->query($sql)) {
     header('Location: dashboard.php?success=Reservation declined');
 } else {
-    header('Location: dashboard.php?error=Could not decline reservation: ' . $conn->error);
+    header('Location: dashboard.php?error=Could not decline reservation');
 }
 exit();
 ?>

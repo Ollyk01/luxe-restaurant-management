@@ -10,13 +10,12 @@ if (!isset($_GET['id'])) {
 
 $reservation_id = intval($_GET['id']);
 
-// Update reservation status to Confirmed
 $sql = "UPDATE reservations SET status = 'Confirmed' WHERE reservation_id = $reservation_id";
 
 if ($conn->query($sql)) {
     header('Location: dashboard.php?success=Reservation confirmed successfully');
 } else {
-    header('Location: dashboard.php?error=Could not confirm reservation: ' . $conn->error);
+    header('Location: dashboard.php?error=Could not confirm reservation');
 }
 exit();
 ?>
