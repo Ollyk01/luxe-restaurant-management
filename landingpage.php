@@ -152,7 +152,7 @@ nav a:hover {
     text-align: center;
 }
 
-.about-text p {
+.about-text p1  {
     max-width: 600px;
     color: #fff;
     line-height: 2.2;
@@ -287,21 +287,15 @@ nav a:hover {
 
 <!-- ABOUT -->
 <section class="about">
-    <div class="row align-items-center">
-
         <div class="about-text">
             <h2>Our Story</h2>
-            <p>
+            <p1>
              Every memorable meal begins with a story.   
-
              Founded in 2018, Luxe was created from a passion for exceptional cuisine and unforgettable experiences. What started as a dream between two culinary enthusiasts soon became one of the city's most sought-after dining destinations.   
-
              Inspired by European fine dining traditions and local South African flavors, our chefs carefully craft each dish using the finest seasonal ingredients. Every plate is designed not only to satisfy the palate but to create lasting memories for our guests.   
-        
              Whether you're celebrating a special occasion, hosting an intimate dinner, or simply enjoying an evening of luxury, we believe dining should be more than a meal, it should be an experience.   
-
              At Luxe, every reservation marks the beginning of a new story, and we are honored to be part of yours.   
-            </p>
+            </p1>
         </div>
     </div>
 </section>
