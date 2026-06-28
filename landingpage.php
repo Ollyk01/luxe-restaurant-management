@@ -61,7 +61,7 @@ nav a:hover {
 }
 
 /* BUTTON */
-.btn {
+.button {
     display: inline-block;
     padding: 12px 25px;
     border: 1px solid #c9a24e;
@@ -71,7 +71,7 @@ nav a:hover {
     color: #fff;
 }
 
-.btn:hover {
+.button:hover {
     background:  #c9a24e;
     color: #fff;
 }
@@ -130,7 +130,7 @@ nav a:hover {
 /* ABOUT */
 
 .about {
-    padding: 120px 0px;
+    padding: 100px 20px;
     background-color: #0a0a0a;
     width: 100%;
     height: 100%;
@@ -277,9 +277,8 @@ nav a:hover {
     <div class="hero-content">
         <h1>Fine Dining Redefined</h1>
         <p>An unforgettable culinary experience</p>
-        <a href="booking.php" class="btn">Reserve Your Table</a>
-        <a href="menu.php" class="btn">View Menu   </a>
-
+        <a href="booking.php" class="button">Reserve Your Table</a>
+        <a href="booking.php" class="button">View Menu</a>
     </div>
     </div>
 
