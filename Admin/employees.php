@@ -720,7 +720,6 @@ $active_employees = $conn->query("SELECT COUNT(*) as count FROM users WHERE stat
             }
         }
 
-        /* Small Tablet / Large Phone */
         @media (max-width: 768px) {
             .sidebar {
                 width: 160px;

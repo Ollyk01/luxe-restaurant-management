@@ -209,13 +209,321 @@ if (isset($_GET['error'])) {
         .empty-state h3 { margin-top: 15px; color: #d7c08a; }
         .empty-state p { margin-top: 8px; color: #666; }
 
-        @media (max-width: 1024px) {
-            .orders-grid { grid-template-columns: 1fr; }
-        }
+        /* ========================================
+           RESPONSIVE - TABLET (768px)
+           ======================================== */
+
         @media (max-width: 768px) {
-            .sidebar { width: 150px; }
-            .orders-grid { grid-template-columns: 1fr; }
-            .order-card { padding: 20px; }
+            /* Sidebar - collapsed */
+            .sidebar {
+                width: 60px;
+                padding: 15px 10px;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 14px;
+                letter-spacing: 4px;
+                padding: 15px 10px;
+                text-align: center;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            nav a {
+                padding: 15px 10px;
+                font-size: 12px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a span {
+                display: none;
+            }
+
+            nav a i {
+                margin-right: 0;
+                font-size: 20px;
+            }
+
+            nav .active {
+                border-left: 3px solid #c6a43b;
+            }
+
+            .sidebar-bottom {
+                text-align: center;
+                padding: 15px 10px;
+            }
+
+            .sidebar-bottom strong {
+                font-size: 10px;
+                display: block;
+            }
+
+            .sidebar-bottom small {
+                font-size: 8px;
+            }
+
+            .logout {
+                font-size: 10px;
+                margin-top: 15px;
+            }
+
+            .logout i {
+                font-size: 16px;
+            }
+
+            /* Main content */
+            main {
+                flex: 1;
+            }
+
+            header {
+                padding: 12px 15px;
+                height: 60px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .crumb {
+                font-size: 12px;
+            }
+
+            .profile {
+                gap: 8px;
+            }
+
+            .circle {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+
+            .profile small {
+                font-size: 9px;
+            }
+
+            .profile strong {
+                font-size: 12px;
+            }
+
+            /* Content */
+            .content {
+                padding: 15px;
+            }
+
+            .orders-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .order-card {
+                padding: 16px;
+                gap: 10px;
+            }
+
+            .order-title {
+                font-size: 18px;
+            }
+
+            .badge {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
+
+            .order-meta {
+                font-size: 11px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .order-total {
+                font-size: 20px;
+            }
+
+            .order-items {
+                font-size: 13px;
+                gap: 4px;
+            }
+
+            .order-items small {
+                font-size: 11px;
+            }
+
+            .order-actions {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .order-actions button {
+                padding: 8px 12px;
+                font-size: 10px;
+                flex: 1 1 auto;
+                min-width: 80px;
+            }
+
+            .empty-state {
+                padding: 40px 20px;
+            }
+
+            .empty-state i {
+                font-size: 36px;
+            }
+
+            .empty-state h3 {
+                font-size: 18px;
+            }
+
+            .empty-state p {
+                font-size: 13px;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MOBILE (480px)
+           ======================================== */
+
+        @media (max-width: 480px) {
+            /* Sidebar - minimal */
+            .sidebar {
+                width: 50px;
+                padding: 10px 5px;
+            }
+
+            .logo {
+                font-size: 11px;
+                letter-spacing: 2px;
+                padding: 10px 5px;
+            }
+
+            nav a {
+                padding: 12px 5px;
+                font-size: 10px;
+            }
+
+            nav a i {
+                font-size: 16px;
+            }
+
+            .sidebar-bottom {
+                padding: 10px 5px;
+            }
+
+            .sidebar-bottom strong {
+                font-size: 8px;
+            }
+
+            .sidebar-bottom small {
+                font-size: 7px;
+            }
+
+            .logout {
+                font-size: 8px;
+            }
+
+            .logout i {
+                font-size: 14px;
+            }
+
+            header {
+                padding: 10px 12px;
+                height: 55px;
+                gap: 5px;
+            }
+
+            .crumb {
+                font-size: 10px;
+            }
+
+            .profile {
+                gap: 6px;
+            }
+
+            .circle {
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+            }
+
+            .profile small {
+                font-size: 8px;
+            }
+
+            .profile strong {
+                font-size: 10px;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .orders-grid {
+                gap: 12px;
+            }
+
+            .order-card {
+                padding: 12px;
+                gap: 8px;
+            }
+
+            .order-title {
+                font-size: 15px;
+            }
+
+            .badge {
+                font-size: 8px;
+                padding: 2px 6px;
+            }
+
+            .order-meta {
+                font-size: 10px;
+                gap: 5px;
+            }
+
+            .order-total {
+                font-size: 17px;
+            }
+
+            .order-items {
+                font-size: 11px;
+                gap: 3px;
+            }
+
+            .order-items small {
+                font-size: 10px;
+            }
+
+            .order-actions {
+                gap: 5px;
+            }
+
+            .order-actions button {
+                padding: 6px 8px;
+                font-size: 8px;
+                min-width: 60px;
+            }
+
+            .order-actions button i {
+                font-size: 10px;
+            }
+
+            .empty-state {
+                padding: 30px 15px;
+            }
+
+            .empty-state i {
+                font-size: 28px;
+            }
+
+            .empty-state h3 {
+                font-size: 15px;
+            }
+
+            .empty-state p {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
@@ -231,9 +539,9 @@ if (isset($_GET['error'])) {
         </div>
 
         <nav>
-            <a href="dashboard.php"><i class="fas fa-receipt"></i> New Order</a>
-            <a class="active" href="active-orders.php"><i class="fas fa-chart-line"></i> Active Orders</a>
-            <a href="feedback.html"><i class="fas fa-comment"></i> Feedback</a>
+            <a href="dashboard.php"><i class="fas fa-receipt"></i> <span>New Order</span></a>
+            <a class="active" href="active-orders.php"><i class="fas fa-chart-line"></i> <span>Active Orders</span></a>
+            <a href="feedback.html"><i class="fas fa-comment"></i> <span>Feedback</span></a>
         </nav>
 
         <div class="sidebar-bottom">
@@ -311,13 +619,13 @@ if (isset($_GET['error'])) {
                                 <?php endforeach; ?>
                             </div>
 
-                           <div class="order-actions">
-                             <form method="POST" action="cancel-order.php" onsubmit="return confirm('Cancel this order?')">
-                             <input type="hidden" name="order_id" value="<?php echo $order['order_id']; ?>">
-                            <button type="submit" class="danger"><i class="fas fa-times"></i> CANCEL</button>
-                        </form>
-                        <button class="secondary" onclick="alert('Feedback feature coming soon!')"><i class="fas fa-comment"></i> FEEDBACK</button>
-                    </div>
+                            <div class="order-actions">
+                                <form method="POST" action="cancel-order.php" onsubmit="return confirm('Cancel this order?')">
+                                    <input type="hidden" name="order_id" value="<?php echo $order['order_id']; ?>">
+                                    <button type="submit" class="danger"><i class="fas fa-times"></i> CANCEL</button>
+                                </form>
+                                <button class="secondary" onclick="alert('Feedback feature coming soon!')"><i class="fas fa-comment"></i> FEEDBACK</button>
+                            </div>
 
                         </div>
                         <?php endforeach; ?>

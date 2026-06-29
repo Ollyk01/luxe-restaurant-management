@@ -21,24 +21,9 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
 
     <style>
         /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #080808;
-            color: #d7c08a;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .dashboard {
-            display: flex;
-            height: 100vh;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+        body { background: #080808; color: #d7c08a; height: 100vh; overflow: hidden; }
+        .dashboard { display: flex; height: 100vh; }
 
         /* Sidebar */
         .sidebar {
@@ -49,21 +34,8 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             flex-direction: column;
             justify-content: space-between;
         }
-
-        .logo {
-            padding: 25px;
-            letter-spacing: 8px;
-            font-size: 18px;
-        }
-
-        .logo span {
-            display: block;
-            font-size: 9px;
-            letter-spacing: 3px;
-            color: #777;
-            margin-top: 10px;
-        }
-
+        .logo { padding: 25px; letter-spacing: 8px; font-size: 18px; }
+        .logo span { display: block; font-size: 9px; letter-spacing: 3px; color: #777; margin-top: 10px; }
         nav a {
             display: block;
             padding: 18px 25px;
@@ -72,51 +44,25 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             border-left: 2px solid transparent;
             text-decoration: none;
         }
-
-        nav a i {
-            margin-right: 12px;
-        }
-
-        nav a:hover {
-            color: #d7b54a;
-        }
-
-        nav .active {
-            background: #242012;
-            color: #d7b54a;
-            border-left-color: #c6a43b;
-        }
-
+        nav a i { margin-right: 12px; }
+        nav a:hover { color: #d7b54a; }
+        nav .active { background: #242012; color: #d7b54a; border-left-color: #c6a43b; }
         .sidebar-bottom {
             border-top: 1px solid #252015;
             padding: 20px;
             font-size: 12px;
         }
-
-        .sidebar-bottom small {
-            display: block;
-            color: #666;
-            margin-top: 5px;
-        }
-
+        .sidebar-bottom small { display: block; color: #666; margin-top: 5px; }
         .logout {
             margin-top: 25px;
             color: #777;
             text-decoration: none;
             display: block;
         }
-
-        .logout:hover {
-            color: #d7b54a;
-        }
+        .logout:hover { color: #d7b54a; }
 
         /* Main content area */
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
+        main { flex: 1; display: flex; flex-direction: column; }
         header {
             height: 70px;
             border-bottom: 1px solid #252015;
@@ -126,18 +72,8 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             padding: 0 30px;
             font-size: 14px;
         }
-
-        .crumb {
-            color: #777;
-            margin-right: 10px;
-        }
-
-        .profile {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
+        .crumb { color: #777; margin-right: 10px; }
+        .profile { display: flex; gap: 12px; align-items: center; }
         .circle {
             border: 1px solid #594d29;
             border-radius: 50%;
@@ -146,12 +82,7 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             display: grid;
             place-items: center;
         }
-
-        .profile small {
-            display: block;
-            font-size: 10px;
-            color: #777;
-        }
+        .profile small { display: block; font-size: 10px; color: #777; }
 
         /* Main content grid layout */
         .content {
@@ -164,37 +95,11 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         }
 
         /* Menu section */
-        .menu-section {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .page-header {
-            margin-bottom: 25px;
-        }
-
-        .page-title {
-            font-size: 28px;
-            font-weight: 300;
-            letter-spacing: 1px;
-            color: #d4af37;
-            margin-bottom: 8px;
-        }
-
-        .table-selector {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .table-label {
-            font-size: 12px;
-            color: #a89436;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
+        .menu-section { display: flex; flex-direction: column; }
+        .page-header { margin-bottom: 25px; }
+        .page-title { font-size: 28px; font-weight: 300; letter-spacing: 1px; color: #d4af37; margin-bottom: 8px; }
+        .table-selector { display: flex; align-items: center; gap: 15px; }
+        .table-label { font-size: 12px; color: #a89436; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
         .table-select {
             padding: 10px 15px;
             background-color: #1a1a1a;
@@ -205,7 +110,6 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .table-select:hover,
         .table-select:focus {
             border-color: rgba(212, 175, 55, 0.5);
@@ -221,7 +125,6 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
             padding-bottom: 15px;
         }
-
         .menu-tab {
             padding: 10px 20px;
             background: transparent;
@@ -235,25 +138,11 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             font-weight: 500;
             letter-spacing: 1px;
         }
-
-        .menu-tab:hover {
-            border-color: rgba(212, 175, 55, 0.4);
-            color: #d4af37;
-        }
-
-        .menu-tab.active {
-            background-color: #d4af37;
-            border-color: #d4af37;
-            color: #0a0a0a;
-        }
+        .menu-tab:hover { border-color: rgba(212, 175, 55, 0.4); color: #d4af37; }
+        .menu-tab.active { background-color: #d4af37; border-color: #d4af37; color: #0a0a0a; }
 
         /* Individual menu items */
-        .menu-items {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
+        .menu-items { display: flex; flex-direction: column; gap: 0; }
         .menu-item {
             background: transparent;
             border: 1px solid rgba(212, 175, 55, 0.15);
@@ -265,40 +154,12 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
-        .menu-item:last-child {
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-        }
-
-        .menu-item:hover {
-            background-color: rgba(212, 175, 55, 0.08);
-            border-color: rgba(212, 175, 55, 0.3);
-        }
-
-        .menu-item-info {
-            flex: 1;
-        }
-
-        .menu-item-name {
-            font-size: 14px;
-            color: #e0e0e0;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .menu-item-desc {
-            font-size: 11px;
-            color: #888888;
-            font-style: italic;
-        }
-
-        .menu-item-tags {
-            display: flex;
-            gap: 6px;
-            margin-top: 6px;
-            flex-wrap: wrap;
-        }
-
+        .menu-item:last-child { border-bottom: 1px solid rgba(212, 175, 55, 0.15); }
+        .menu-item:hover { background-color: rgba(212, 175, 55, 0.08); border-color: rgba(212, 175, 55, 0.3); }
+        .menu-item-info { flex: 1; }
+        .menu-item-name { font-size: 14px; color: #e0e0e0; font-weight: 500; margin-bottom: 4px; }
+        .menu-item-desc { font-size: 11px; color: #888888; font-style: italic; }
+        .menu-item-tags { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
         .menu-tag {
             background-color: rgba(244, 67, 54, 0.2);
             color: #ff6b6b;
@@ -308,22 +169,8 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             text-transform: uppercase;
             font-weight: 600;
         }
-
-        .menu-item-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-left: 15px;
-        }
-
-        .menu-item-price {
-            font-size: 16px;
-            color: #d4af37;
-            font-weight: 600;
-            min-width: 50px;
-            text-align: right;
-        }
-
+        .menu-item-right { display: flex; align-items: center; gap: 12px; margin-left: 15px; }
+        .menu-item-price { font-size: 16px; color: #d4af37; font-weight: 600; min-width: 50px; text-align: right; }
         .menu-item-add {
             background-color: transparent;
             border: 1px solid rgba(212, 175, 55, 0.3);
@@ -339,11 +186,7 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             justify-content: center;
             font-weight: bold;
         }
-
-        .menu-item-add:hover {
-            background-color: rgba(212, 175, 55, 0.2);
-            border-color: rgba(212, 175, 55, 0.5);
-        }
+        .menu-item-add:hover { background-color: rgba(212, 175, 55, 0.2); border-color: rgba(212, 175, 55, 0.5); }
 
         /* Order summary panel */
         .order-panel {
@@ -357,35 +200,8 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             position: sticky;
             top: 30px;
         }
-
-        .order-panel-title {
-            font-size: 12px;
-            color: #a89436;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .order-table-info {
-            font-size: 14px;
-            color: #d4af37;
-            font-weight: 600;
-            margin-bottom: 15px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .order-items-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 15px;
-            max-height: 250px;
-            overflow-y: auto;
-            padding-right: 8px;
-        }
-
+        .order-panel-title { font-size: 12px; color: #a89436; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; font-weight: 600; }
+        .order-items-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; max-height: 250px; overflow-y: auto; padding-right: 8px; }
         .order-item {
             background-color: rgba(212, 175, 55, 0.1);
             padding: 10px;
@@ -395,28 +211,10 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             align-items: flex-start;
             font-size: 12px;
         }
-
-        .order-item-info {
-            flex: 1;
-        }
-
-        .order-item-name {
-            color: #e0e0e0;
-            font-weight: 600;
-            margin-bottom: 3px;
-        }
-
-        .order-item-pref {
-            color: #d4af37;
-            font-size: 10px;
-            margin-bottom: 2px;
-        }
-
-        .order-item-price {
-            color: #d4af37;
-            font-weight: 600;
-        }
-
+        .order-item-info { flex: 1; }
+        .order-item-name { color: #e0e0e0; font-weight: 600; margin-bottom: 3px; }
+        .order-item-pref { color: #d4af37; font-size: 10px; margin-bottom: 2px; }
+        .order-item-price { color: #d4af37; font-weight: 600; }
         .order-item-remove {
             background: none;
             border: none;
@@ -426,26 +224,9 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             padding: 0 5px;
             transition: all 0.3s ease;
         }
-
-        .order-item-remove:hover {
-            color: #ff8888;
-        }
-
-        .order-divider {
-            height: 1px;
-            background-color: rgba(212, 175, 55, 0.2);
-            margin-bottom: 15px;
-        }
-
-        .special-instructions-label {
-            font-size: 10px;
-            color: #a89436;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
+        .order-item-remove:hover { color: #ff8888; }
+        .order-divider { height: 1px; background-color: rgba(212, 175, 55, 0.2); margin-bottom: 15px; }
+        .special-instructions-label { font-size: 10px; color: #a89436; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 600; }
         .special-instructions {
             width: 100%;
             padding: 10px;
@@ -460,26 +241,8 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             font-family: inherit;
             transition: all 0.3s ease;
         }
-
-        .special-instructions:focus {
-            outline: none;
-            border-color: rgba(212, 175, 55, 0.5);
-            background-color: #252525;
-        }
-
-        .special-instructions::placeholder {
-            color: #666666;
-        }
-
-        .allergies-label {
-            font-size: 10px;
-            color: #a89436;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
+        .special-instructions:focus { outline: none; border-color: rgba(212, 175, 55, 0.5); background-color: #252525; }
+        .allergies-label { font-size: 10px; color: #a89436; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 600; }
         .allergies {
             width: 100%;
             padding: 10px;
@@ -494,39 +257,10 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             font-family: inherit;
             transition: all 0.3s ease;
         }
-
-        .allergies:focus {
-            outline: none;
-            border-color: rgba(212, 175, 55, 0.5);
-            background-color: #252525;
-        }
-
-        .allergies::placeholder {
-            color: #666666;
-        }
-
-        .order-total-section {
-            padding-top: 12px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            margin-bottom: 15px;
-        }
-
-        .order-total-label {
-            font-size: 11px;
-            color: #a89436;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .order-total {
-            font-size: 28px;
-            color: #d4af37;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
+        .allergies:focus { outline: none; border-color: rgba(212, 175, 55, 0.5); background-color: #252525; }
+        .order-total-section { padding-top: 12px; border-top: 1px solid rgba(212, 175, 55, 0.2); margin-bottom: 15px; }
+        .order-total-label { font-size: 11px; color: #a89436; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 5px; }
+        .order-total { font-size: 28px; color: #d4af37; font-weight: 300; letter-spacing: 1px; }
         .submit-btn {
             width: 100%;
             padding: 14px;
@@ -542,17 +276,8 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             border-radius: 3px;
             margin-top: 15px;
         }
-
-        .submit-btn:hover {
-            background-color: #e5c158;
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .submit-btn:disabled {
-            background-color: #888888;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
+        .submit-btn:hover { background-color: #e5c158; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3); }
+        .submit-btn:disabled { background-color: #888888; cursor: not-allowed; box-shadow: none; }
 
         /* Modal for cooking preferences */
         .modal-overlay {
@@ -567,11 +292,7 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             justify-content: center;
             align-items: center;
         }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
+        .modal-overlay.active { display: flex; }
         .modal {
             background-color: #1a1a1a;
             border: 1px solid rgba(212, 175, 55, 0.3);
@@ -580,24 +301,8 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             max-width: 400px;
             width: 90%;
         }
-
-        .modal-title {
-            font-size: 16px;
-            color: #d4af37;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .cooking-preference-label {
-            font-size: 11px;
-            color: #a89436;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            display: block;
-        }
-
+        .modal-title { font-size: 16px; color: #d4af37; margin-bottom: 20px; font-weight: 600; }
+        .cooking-preference-label { font-size: 11px; color: #a89436; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-weight: 600; display: block; }
         .preference-option {
             padding: 12px 15px;
             background-color: transparent;
@@ -610,25 +315,9 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             font-size: 13px;
             text-align: left;
         }
-
-        .preference-option:hover {
-            border-color: rgba(212, 175, 55, 0.5);
-            background-color: rgba(212, 175, 55, 0.1);
-        }
-
-        .preference-option.selected {
-            background-color: #d4af37;
-            border-color: #d4af37;
-            color: #0a0a0a;
-            font-weight: 600;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
+        .preference-option:hover { border-color: rgba(212, 175, 55, 0.5); background-color: rgba(212, 175, 55, 0.1); }
+        .preference-option.selected { background-color: #d4af37; border-color: #d4af37; color: #0a0a0a; font-weight: 600; }
+        .modal-buttons { display: flex; gap: 10px; margin-top: 20px; }
         .modal-btn {
             flex: 1;
             padding: 10px;
@@ -642,21 +331,9 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             text-transform: uppercase;
             font-size: 11px;
         }
-
-        .modal-btn:hover {
-            border-color: rgba(212, 175, 55, 0.5);
-            color: #d4af37;
-        }
-
-        .modal-btn.confirm {
-            background-color: #d4af37;
-            color: #0a0a0a;
-            border-color: #d4af37;
-        }
-
-        .modal-btn.confirm:hover {
-            background-color: #e5c158;
-        }
+        .modal-btn:hover { border-color: rgba(212, 175, 55, 0.5); color: #d4af37; }
+        .modal-btn.confirm { background-color: #d4af37; color: #0a0a0a; border-color: #d4af37; }
+        .modal-btn.confirm:hover { background-color: #e5c158; }
 
         /* Notification */
         .notification {
@@ -674,44 +351,361 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
             box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
             animation: slideIn 0.3s ease;
         }
-
-        .notification.active {
-            display: block;
-        }
-
-        .notification-title {
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #66bb6a;
-            font-size: 14px;
-        }
-
-        .notification-content {
-            color: #81c784;
-            font-size: 12px;
-            line-height: 1.5;
-        }
+        .notification.active { display: block; }
+        .notification-title { font-weight: 700; margin-bottom: 5px; color: #66bb6a; font-size: 14px; }
+        .notification-content { color: #81c784; font-size: 12px; line-height: 1.5; }
 
         @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+                padding: 15px 10px;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 14px;
+                letter-spacing: 4px;
+                padding: 15px 10px;
+                text-align: center;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            nav a {
+                padding: 15px 10px;
+                font-size: 12px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a span {
+                display: none;
+            }
+
+            nav a i {
+                margin-right: 0;
+                font-size: 20px;
+            }
+
+            nav .active {
+                border-left: 3px solid #c6a43b;
+            }
+
+            .sidebar-bottom {
+                text-align: center;
+                padding: 15px 10px;
+            }
+
+            .sidebar-bottom strong {
+                font-size: 10px;
+                display: block;
+            }
+
+            .sidebar-bottom small {
+                font-size: 8px;
+            }
+
+            .logout {
+                font-size: 10px;
+                margin-top: 15px;
+            }
+
+            .logout i {
+                font-size: 16px;
+            }
+
+            header {
+                padding: 12px 15px;
+                height: auto;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .crumb {
+                font-size: 12px;
+            }
+
+            .profile {
+                gap: 8px;
+            }
+
+            .circle {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+
+            .profile small {
+                font-size: 9px;
+            }
+
+            .profile strong {
+                font-size: 12px;
+            }
+
             .content {
+                padding: 15px;
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
             .order-panel {
                 position: static;
+            }
+
+            .page-title {
+                font-size: 22px;
+            }
+
+            .table-selector {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .table-select {
+                width: 100%;
+            }
+
+            .menu-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 6px;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .menu-tab {
+                flex: 0 0 auto;
+                padding: 8px 14px;
+                font-size: 10px;
+                white-space: nowrap;
+            }
+
+            .menu-item {
+                padding: 14px;
+            }
+
+            .menu-item-name {
+                font-size: 13px;
+            }
+
+            .menu-item-price {
+                font-size: 14px;
+            }
+
+            .menu-item-add {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+
+            .order-panel {
+                padding: 15px;
+            }
+
+            .order-items-list {
+                max-height: 180px;
+            }
+
+            .order-total {
+                font-size: 24px;
+            }
+
+            .submit-btn {
+                padding: 12px;
+                font-size: 11px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 50px;
+                padding: 10px 5px;
+            }
+
+            .logo {
+                font-size: 11px;
+                letter-spacing: 2px;
+                padding: 10px 5px;
+            }
+
+            nav a {
+                padding: 12px 5px;
+                font-size: 10px;
+            }
+
+            nav a i {
+                font-size: 16px;
+            }
+
+            .sidebar-bottom {
+                padding: 10px 5px;
+            }
+
+            .sidebar-bottom strong {
+                font-size: 8px;
+            }
+
+            .sidebar-bottom small {
+                font-size: 7px;
+            }
+
+            .logout {
+                font-size: 8px;
+            }
+
+            .logout i {
+                font-size: 14px;
+            }
+
+            header {
+                padding: 10px 12px;
+                gap: 5px;
+            }
+
+            .crumb {
+                font-size: 10px;
+            }
+
+            .profile {
+                gap: 6px;
+            }
+
+            .circle {
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+            }
+
+            .profile small {
+                font-size: 8px;
+            }
+
+            .profile strong {
+                font-size: 10px;
+            }
+
+            .content {
+                padding: 10px;
+                gap: 15px;
+            }
+
+            .page-title {
+                font-size: 18px;
+            }
+
+            .menu-tab {
+                padding: 6px 10px;
+                font-size: 9px;
+            }
+
+            .menu-item {
+                padding: 10px;
+                flex-wrap: wrap;
+            }
+
+            .menu-item-name {
+                font-size: 12px;
+            }
+
+            .menu-item-price {
+                font-size: 13px;
+            }
+
+            .menu-item-right {
+                gap: 8px;
+                margin-left: 10px;
+            }
+
+            .menu-item-add {
+                width: 26px;
+                height: 26px;
+                font-size: 14px;
+            }
+
+            .order-panel {
+                padding: 12px;
+            }
+
+            .order-panel-title {
+                font-size: 10px;
+            }
+
+            .order-item {
+                font-size: 11px;
+                padding: 8px;
+            }
+
+            .order-item-name {
+                font-size: 11px;
+            }
+
+            .order-item-price {
+                font-size: 11px;
+            }
+
+            .order-item-remove {
+                font-size: 12px;
+            }
+
+            .order-items-list {
+                max-height: 150px;
+                gap: 6px;
+            }
+
+            .order-total {
+                font-size: 20px;
+            }
+
+            .special-instructions,
+            .allergies {
+                font-size: 10px;
+                padding: 8px;
+                height: 40px;
+            }
+
+            .submit-btn {
+                padding: 10px;
+                font-size: 10px;
+            }
+
+            .modal {
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 14px;
+            }
+
+            .preference-option {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+
+            .modal-btn {
+                padding: 8px;
+                font-size: 10px;
+            }
+
+            .notification {
+                right: 10px;
+                left: 10px;
+                top: 10px;
+                padding: 15px;
+                font-size: 12px;
+            }
+
+            .notification-title {
+                font-size: 13px;
             }
         }
     </style>
@@ -730,8 +724,8 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         </div>
 
         <nav>
-            <a class="active" href="new-order.php"><i class="fas fa-receipt"></i> New Orders</a>
-            <a href="active-orders.php"><i class="fas fa-chart-line"></i> Active Orders</a>
+            <a class="active" href="new-order.php"><i class="fas fa-receipt"></i> <span>New Orders</span></a>
+            <a href="active-orders.php"><i class="fas fa-chart-line"></i> <span>Active Orders</span></a>
         </nav>
 
         <div class="sidebar-bottom">
@@ -849,6 +843,168 @@ $tables = $conn->query("SELECT * FROM restaurant_tables WHERE status = 'availabl
         Order <span id="notificationOrderNum"></span> for <span id="notificationTable"></span> has been sent to the kitchen
     </div>
 </div>
+
+<script>
+    // ===== MENU DATA FROM PHP =====
+    const menuData = {
+        starters: [
+            <?php
+            $starters = $conn->query("SELECT * FROM menu_items WHERE category = 'Starters' AND availability_status = 'available'");
+            $items = [];
+            while ($item = $starters->fetch_assoc()) {
+                $items[] = "{ id: " . $item['item_id'] . ", name: '" . addslashes($item['item_name']) . "', price: " . $item['price'] . " }";
+            }
+            echo implode(",\n", $items);
+            ?>
+        ],
+        mains: [
+            <?php
+            $mains = $conn->query("SELECT * FROM menu_items WHERE category = 'Mains' AND availability_status = 'available'");
+            $items = [];
+            while ($item = $mains->fetch_assoc()) {
+                $items[] = "{ id: " . $item['item_id'] . ", name: '" . addslashes($item['item_name']) . "', price: " . $item['price'] . " }";
+            }
+            echo implode(",\n", $items);
+            ?>
+        ],
+        desserts: [
+            <?php
+            $desserts = $conn->query("SELECT * FROM menu_items WHERE category = 'Desserts' AND availability_status = 'available'");
+            $items = [];
+            while ($item = $desserts->fetch_assoc()) {
+                $items[] = "{ id: " . $item['item_id'] . ", name: '" . addslashes($item['item_name']) . "', price: " . $item['price'] . " }";
+            }
+            echo implode(",\n", $items);
+            ?>
+        ],
+        beverages: [
+            <?php
+            $beverages = $conn->query("SELECT * FROM menu_items WHERE category = 'Beverages' AND availability_status = 'available'");
+            $items = [];
+            while ($item = $beverages->fetch_assoc()) {
+                $items[] = "{ id: " . $item['item_id'] . ", name: '" . addslashes($item['item_name']) . "', price: " . $item['price'] . " }";
+            }
+            echo implode(",\n", $items);
+            ?>
+        ]
+    };
+
+    console.log('Menu Data loaded:', menuData);
+
+    // Application state
+    let currentCategory = 'starters';
+    let orderItems = [];
+    let selectedItemForPreference = null;
+    let currentTable = '';
+
+    // Meat items that require cooking preference
+    const meatItems = {
+        'Filet Mignon with Truffle Mash and Red Wine Jus': 'beef',
+        'Slow-Braised Beef Short Rib': 'beef',
+        'Slow-Roasted Lamb Shank': 'lamb',
+        'Duck Breast with Cherry Reduction': 'duck',
+        'Seared Tuna Steak': 'tuna',
+        'Pan-Seared Scallops with Pea Purée': 'seafood',
+        'Seafood Risotto': 'seafood',
+        'Seafood Pasta': 'seafood',
+        'Garlic Butter Prawns': 'seafood'
+    };
+
+    const cookingPreferences = {
+        beef: ['Rare', 'Medium Rare', 'Medium', 'Medium Well', 'Well Done'],
+        lamb: ['Rare', 'Medium Rare', 'Medium', 'Medium Well', 'Well Done'],
+        duck: ['Medium Rare', 'Medium', 'Medium Well', 'Well Done'],
+        tuna: ['Rare', 'Medium Rare', 'Medium', 'Medium Well', 'Well Done'],
+        seafood: ['None']
+    };
+
+    function init() {
+        renderMenu('starters');
+        setupEventListeners();
+    }
+
+    function setupEventListeners() {
+        document.querySelectorAll('.menu-tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                const category = this.dataset.category;
+                document.querySelectorAll('.menu-tab').forEach(function(t) {
+                    t.classList.remove('active');
+                });
+                this.classList.add('active');
+                renderMenu(category);
+            });
+        });
+
+        document.getElementById('tableSelect').addEventListener('change', function(e) {
+            currentTable = this.value;
+            updateOrderPanel();
+        });
+
+        document.getElementById('submitBtn').addEventListener('click', submitOrder);
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            document.getElementById('modalOverlay').classList.remove('active');
+        });
+        document.getElementById('confirmBtn').addEventListener('click', confirmPreference);
+    }
+
+    function renderMenu(category) {
+        currentCategory = category;
+        const menuContainer = document.getElementById('menuItems');
+        menuContainer.innerHTML = '';
+
+        if (!menuData[category] || menuData[category].length === 0) {
+            menuContainer.innerHTML = '<div style="text-align:center;color:#666;padding:40px;">No items available</div>';
+            return;
+        }
+
+        menuData[category].forEach(function(item) {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'menu-item';
+            itemDiv.innerHTML = `
+                <div class="menu-item-info">
+                    <div class="menu-item-name">${item.name}</div>
+                    <div class="menu-item-price" style="font-size:12px;color:#888;">R${item.price}</div>
+                </div>
+                <div class="menu-item-right">
+                    <button class="menu-item-add" data-name="${item.name}" data-price="${item.price}">+</button>
+                </div>
+            `;
+            menuContainer.appendChild(itemDiv);
+        });
+
+        document.querySelectorAll('.menu-item-add').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const name = this.dataset.name;
+                const price = parseFloat(this.dataset.price);
+                
+                if (!currentTable) {
+                    alert('Please select a table first');
+                    return;
+                }
+                
+                console.log('Adding item:', name, 'Price:', price);
+                
+                if (meatItems[name]) {
+                    selectedItemForPreference = {
+                        name: name,
+                        price: price,
+                        meatType: meatItems[name]
+                    };
+                    showCookingPreferenceModal(name, meatItems[name]);
+                } else {
+                    addItemToOrder(name, price, null);
+                }
+            });
+        });
+    }
+
+    function showCookingPreferenceModal(itemName, meatType) {
+        document.getElementById('meatType').textContent = meatType;
+        const modal = document.getElementById('modalOverlay');
+        const optionsContainer = document.getElementById('preferenceOptions');
+        optionsContainer.innerHTML = '';
+
+        const prefs = cookingPreferences[meatType
 
 <script>
     // Menu data from database

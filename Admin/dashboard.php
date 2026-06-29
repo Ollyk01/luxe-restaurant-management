@@ -518,26 +518,325 @@ $recent_reservations = $conn->query("SELECT * FROM reservations ORDER BY created
             font-size: 12px;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .sidebar {
-                width: 180px;
-                padding: 20px 15px;
+                width: 60px;
+                padding: 15px 10px;
+                align-items: center;
+            }
+
+            .logo-sidebar {
+                font-size: 14px;
+                letter-spacing: 2px;
+                text-align: center;
+            }
+
+            .logo-subtitle-sidebar {
+                display: none;
+            }
+
+            .nav-item {
+                font-size: 12px;
+                padding: 10px 8px;
+                justify-content: center;
+            }
+
+            .nav-item span {
+                display: none;
+            }
+
+            .nav-item.active {
+                padding-left: 8px;
+                border-left: 3px solid #d4af37;
+            }
+
+            .nav-icon {
+                font-size: 20px;
+                width: 24px;
+                text-align: center;
+            }
+
+            .user-info .user-name {
+                font-size: 10px;
+                text-align: center;
+            }
+
+            .user-info .user-role {
+                font-size: 8px;
+                text-align: center;
+            }
+
+            .logout {
+                font-size: 10px;
+                padding: 8px 6px;
+                justify-content: center;
+            }
+
+            .logout i {
+                font-size: 16px;
             }
 
             .main-content {
-                margin-left: 180px;
+                margin-left: 60px;
             }
 
-            .content {
-                padding: 20px;
+            .top-nav {
+                padding: 12px 15px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .breadcrumb {
+                font-size: 13px;
+            }
+
+            .user-profile {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .notification-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+
+            .profile-avatar {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+
+            .profile-name {
+                font-size: 12px;
+            }
+
+            .profile-role {
+                font-size: 8px;
             }
 
             .page-title {
-                font-size: 24px;
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 15px;
             }
 
             .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 15px;
+            }
+
+            .stat-value {
+                font-size: 22px;
+            }
+
+            .filter-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 6px;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .filter-tab {
+                flex: 0 0 auto;
+                padding: 5px 10px;
+                font-size: 10px;
+                white-space: nowrap;
+            }
+
+            .data-table {
+                font-size: 12px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 10px 8px;
+            }
+
+            .guest-contact {
+                font-size: 10px;
+            }
+
+            .action-btn {
+                font-size: 9px;
+                padding: 4px 8px;
+            }
+
+            .status-badge {
+                font-size: 9px;
+                padding: 3px 8px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 50px;
+                padding: 10px 5px;
+            }
+
+            .logo-sidebar {
+                font-size: 11px;
+                letter-spacing: 1px;
+            }
+
+            .nav-item {
+                padding: 8px 4px;
+            }
+
+            .nav-icon {
+                font-size: 16px;
+                width: 20px;
+            }
+
+            .user-info .user-name {
+                font-size: 8px;
+            }
+
+            .user-info .user-role {
+                font-size: 7px;
+            }
+
+            .logout {
+                font-size: 8px;
+                padding: 6px 4px;
+            }
+
+            .logout i {
+                font-size: 14px;
+            }
+
+            .main-content {
+                margin-left: 50px;
+            }
+
+            .top-nav {
+                padding: 10px 12px;
+                gap: 8px;
+            }
+
+            .breadcrumb {
+                font-size: 11px;
+            }
+
+            .user-profile {
+                gap: 8px;
+            }
+
+            .notification-icon {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+
+            .profile-avatar {
+                width: 24px;
+                height: 24px;
+                font-size: 10px;
+            }
+
+            .profile-name {
+                font-size: 10px;
+            }
+
+            .profile-role {
+                font-size: 7px;
+            }
+
+            .page-title {
+                font-size: 17px;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 12px;
+            }
+
+            .stat-label {
+                font-size: 9px;
+            }
+
+            .stat-value {
+                font-size: 18px;
+            }
+
+            .stat-sublabel {
+                font-size: 8px;
+            }
+
+            .filter-tabs {
+                gap: 4px;
+                padding-bottom: 8px;
+            }
+
+            .filter-tab {
+                padding: 4px 8px;
+                font-size: 8px;
+            }
+
+            .data-table {
+                font-size: 10px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 6px 4px;
+            }
+
+            .guest-info {
+                font-size: 11px;
+            }
+
+            .guest-contact {
+                font-size: 9px;
+            }
+
+            .guest-phone {
+                font-size: 8px;
+            }
+
+            .status-badge {
+                font-size: 8px;
+                padding: 2px 6px;
+            }
+
+            .action-btn {
+                font-size: 8px;
+                padding: 3px 6px;
+                margin-right: 2px;
+            }
+
+            .action-btn i {
+                font-size: 10px;
+            }
+
+            .alert-banner {
+                padding: 8px 10px;
+            }
+
+            .alert-content {
+                font-size: 10px;
+            }
+
+            .alert-close {
+                font-size: 14px;
             }
         }
     </style>
@@ -705,6 +1004,44 @@ $recent_reservations = $conn->query("SELECT * FROM reservations ORDER BY created
     <?php endif; ?>
 </tbody>
 </table>
+    </div>
+</div>
+
+<script>
+    /* ALERT CLOSE */
+    document.getElementById("closeAlert").addEventListener("click", function () {
+        document.getElementById("alertBanner").style.display = "none";
+    });
+
+    /* FILTER */
+    const tabs = document.querySelectorAll(".filter-tab");
+    const rows = document.querySelectorAll("#reservationTable tr");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            const filter = tab.getAttribute("data-filter");
+
+            rows.forEach(row => {
+                const statusEl = row.querySelector(".status-badge");
+                if (!statusEl) return;
+
+                const status = statusEl.textContent.toLowerCase();
+
+                if (filter === "all") {
+                    row.style.display = "";
+                } else {
+                    row.style.display = status.includes(filter) ? "" : "none";
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
 
 <script>
     /* ALERT CLOSE */

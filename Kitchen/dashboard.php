@@ -136,7 +136,330 @@ if (isset($_POST['update_status'])) {
         .cancelled-btn { color: #f44336; border-color: #f44336; }
         .cancelled-btn:hover { background: rgba(244, 67, 54, 0.15); }
 
-        @media (max-width: 1024px) { .sidebar { width: 180px; padding: 20px 15px; } .main-content { margin-left: 180px; } .content { padding: 20px; } .page-title { font-size: 24px; } }
+@media (max-width: 768px) {
+    /* Sidebar - collapsed */
+    .sidebar {
+        width: 60px;
+        padding: 15px 8px;
+        align-items: center;
+    }
+
+    .logo-sidebar {
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .logo-subtitle-sidebar {
+        display: none;
+    }
+
+    .nav-item {
+        font-size: 12px;
+        padding: 10px 8px;
+        justify-content: center;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+
+    .nav-item.active {
+        padding-left: 8px;
+        border-left: 3px solid #d4af37;
+    }
+
+    .nav-icon {
+        font-size: 20px;
+        width: 24px;
+        text-align: center;
+    }
+
+    .user-info .user-name {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .user-info .user-role {
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .logout {
+        font-size: 10px;
+        padding: 8px 6px;
+        justify-content: center;
+    }
+
+    .logout i {
+        font-size: 16px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    /* Top Navigation */
+    .top-nav {
+        padding: 12px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+    }
+
+    .user-profile {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .notification-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .profile-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .profile-name {
+        font-size: 12px;
+    }
+
+    .profile-role {
+        font-size: 8px;
+    }
+
+    /* Content */
+    .page-title {
+        font-size: 20px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    /* Filter Tabs - scrollable */
+    .filter-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 6px;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-tab {
+        flex: 0 0 auto;
+        padding: 5px 10px;
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    /* Order Cards */
+    .order-card {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .order-time {
+        align-self: flex-start;
+    }
+
+    .order-number {
+        font-size: 13px;
+    }
+
+    .order-meta {
+        font-size: 11px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .order-item {
+        font-size: 12px;
+        padding-left: 8px;
+    }
+
+    .order-items-label {
+        font-size: 9px;
+    }
+
+    .order-actions {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .status-btn {
+        padding: 6px 10px;
+        font-size: 9px;
+        flex: 1 1 auto;
+        min-width: 70px;
+        text-align: center;
+        border-width: 1.5px;
+    }
+
+    .alert {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Sidebar - minimal */
+    .sidebar {
+        width: 50px;
+        padding: 10px 5px;
+    }
+
+    .logo-sidebar {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .nav-item {
+        padding: 8px 4px;
+    }
+
+    .nav-icon {
+        font-size: 16px;
+        width: 20px;
+    }
+
+    .user-info .user-name {
+        font-size: 8px;
+    }
+
+    .user-info .user-role {
+        font-size: 7px;
+    }
+
+    .logout {
+        font-size: 8px;
+        padding: 6px 4px;
+    }
+
+    .logout i {
+        font-size: 14px;
+    }
+
+    .main-content {
+        margin-left: 50px;
+    }
+
+    /* Top Navigation */
+    .top-nav {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .breadcrumb {
+        font-size: 11px;
+    }
+
+    .user-profile {
+        gap: 8px;
+    }
+
+    .notification-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    .profile-avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+
+    .profile-name {
+        font-size: 10px;
+    }
+
+    .profile-role {
+        font-size: 7px;
+    }
+
+    /* Content */
+    .page-title {
+        font-size: 17px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .filter-tabs {
+        gap: 4px;
+        padding-bottom: 8px;
+    }
+
+    .filter-tab {
+        padding: 4px 8px;
+        font-size: 8px;
+    }
+
+    /* Order Cards */
+    .order-card {
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+
+    .order-number {
+        font-size: 11px;
+    }
+
+    .order-meta {
+        font-size: 10px;
+        gap: 6px;
+    }
+
+    .order-time {
+        font-size: 10px;
+    }
+
+    .order-item {
+        font-size: 11px;
+        padding-left: 6px;
+    }
+
+    .order-items-label {
+        font-size: 8px;
+    }
+
+    .item-quantity {
+        font-size: 11px;
+    }
+
+    .order-actions {
+        gap: 4px;
+    }
+
+    .status-btn {
+        padding: 4px 8px;
+        font-size: 8px;
+        min-width: 55px;
+        border-width: 1.5px;
+    }
+
+    .alert {
+        font-size: 11px;
+        padding: 8px 12px;
+    }
+}
     </style>
 </head>
 

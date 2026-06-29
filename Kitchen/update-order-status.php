@@ -406,7 +406,6 @@ $active_orders = $conn->query($sql);
             transition: all 0.3s ease;
         }
 
-       
         .ready-btn {
             color: #4caf50;
             border-color: #4caf50;
@@ -416,7 +415,6 @@ $active_orders = $conn->query($sql);
             background: rgba(76, 175, 80, 0.15);
         }
 
-      
         .preparing-btn {
             color: #ff9800;
             border-color: #ff9800;
@@ -435,7 +433,6 @@ $active_orders = $conn->query($sql);
             background: rgba(33, 150, 243, 0.15);
         }
 
-  
         .cancelled-btn {
             color: #f44336;
             border-color: #f44336;
@@ -445,22 +442,322 @@ $active_orders = $conn->query($sql);
             background: rgba(244, 67, 54, 0.15);
         }
 
-        @media (max-width: 1024px) {
+
+        @media (max-width: 768px) {
+            /* Sidebar - collapsed */
             .sidebar {
-                width: 180px;
-                padding: 20px 15px;
+                width: 60px;
+                padding: 15px 8px;
+                align-items: center;
+            }
+
+            .logo-sidebar {
+                font-size: 14px;
+                letter-spacing: 2px;
+                text-align: center;
+            }
+
+            .logo-subtitle-sidebar {
+                display: none;
+            }
+
+            .nav-item {
+                font-size: 12px;
+                padding: 10px 8px;
+                justify-content: center;
+            }
+
+            .nav-item span {
+                display: none;
+            }
+
+            .nav-item.active {
+                padding-left: 8px;
+                border-left: 3px solid #d4af37;
+            }
+
+            .nav-icon {
+                font-size: 20px;
+                width: 24px;
+                text-align: center;
+            }
+
+            .user-info .user-name {
+                font-size: 10px;
+                text-align: center;
+            }
+
+            .user-info .user-role {
+                font-size: 8px;
+                text-align: center;
+            }
+
+            .logout {
+                font-size: 10px;
+                padding: 8px 6px;
+                justify-content: center;
+            }
+
+            .logout i {
+                font-size: 16px;
             }
 
             .main-content {
-                margin-left: 180px;
+                margin-left: 60px;
+            }
+
+            /* Top Navigation */
+            .top-nav {
+                padding: 12px 15px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .breadcrumb {
+                font-size: 13px;
+            }
+
+            .user-profile {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .notification-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+
+            .profile-avatar {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+
+            .profile-name {
+                font-size: 12px;
+            }
+
+            .profile-role {
+                font-size: 8px;
+            }
+
+            /* Content */
+            .page-title {
+                font-size: 20px;
             }
 
             .content {
-                padding: 20px;
+                padding: 15px;
             }
 
+            .order-card {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+
+            .order-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .order-number {
+                font-size: 13px;
+            }
+
+            .order-meta {
+                font-size: 11px;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .order-time {
+                font-size: 11px;
+            }
+
+            .order-status-badge {
+                font-size: 10px;
+                padding: 3px 10px;
+            }
+
+            .order-item {
+                font-size: 12px;
+                padding-left: 8px;
+            }
+
+            .order-items-label {
+                font-size: 9px;
+            }
+
+            .order-actions {
+                gap: 6px;
+            }
+
+            .status-btn {
+                padding: 6px 10px;
+                font-size: 9px;
+                flex: 1 1 auto;
+                min-width: 70px;
+                text-align: center;
+                border-width: 1.5px;
+            }
+
+            .alert {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+
+            .page-subtitle {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Sidebar - minimal */
+            .sidebar {
+                width: 50px;
+                padding: 10px 5px;
+            }
+
+            .logo-sidebar {
+                font-size: 11px;
+                letter-spacing: 1px;
+            }
+
+            .nav-item {
+                padding: 8px 4px;
+            }
+
+            .nav-icon {
+                font-size: 16px;
+                width: 20px;
+            }
+
+            .user-info .user-name {
+                font-size: 8px;
+            }
+
+            .user-info .user-role {
+                font-size: 7px;
+            }
+
+            .logout {
+                font-size: 8px;
+                padding: 6px 4px;
+            }
+
+            .logout i {
+                font-size: 14px;
+            }
+
+            .main-content {
+                margin-left: 50px;
+            }
+
+            /* Top Navigation */
+            .top-nav {
+                padding: 10px 12px;
+                gap: 8px;
+            }
+
+            .breadcrumb {
+                font-size: 11px;
+            }
+
+            .user-profile {
+                gap: 8px;
+            }
+
+            .notification-icon {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+
+            .profile-avatar {
+                width: 24px;
+                height: 24px;
+                font-size: 10px;
+            }
+
+            .profile-name {
+                font-size: 10px;
+            }
+
+            .profile-role {
+                font-size: 7px;
+            }
+
+            /* Content */
             .page-title {
-                font-size: 24px;
+                font-size: 17px;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .order-card {
+                padding: 10px;
+                margin-bottom: 12px;
+            }
+
+            .order-number {
+                font-size: 11px;
+            }
+
+            .order-meta {
+                font-size: 10px;
+                gap: 6px;
+            }
+
+            .order-time {
+                font-size: 10px;
+            }
+
+            .order-status-badge {
+                font-size: 8px;
+                padding: 2px 8px;
+            }
+
+            .order-item {
+                font-size: 11px;
+                padding-left: 6px;
+            }
+
+            .order-items-label {
+                font-size: 8px;
+            }
+
+            .item-quantity {
+                font-size: 11px;
+            }
+
+            .order-actions {
+                gap: 4px;
+            }
+
+            .status-btn {
+                padding: 4px 8px;
+                font-size: 8px;
+                min-width: 55px;
+                border-width: 1.5px;
+            }
+
+            .status-btn i {
+                font-size: 10px;
+            }
+
+            .alert {
+                font-size: 11px;
+                padding: 8px 12px;
+            }
+
+            .page-subtitle {
+                font-size: 11px;
             }
         }
     </style>
